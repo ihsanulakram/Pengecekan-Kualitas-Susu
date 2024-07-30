@@ -1,6 +1,4 @@
-# 🎈 Blank app template
-
-A simple Streamlit app template for you to modify!
+# Pengecekan Kualitas Susu
 
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://kualitas-susu.streamlit.app/)
 
