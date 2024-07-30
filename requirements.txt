@@ -1,6 +1,6 @@
 streamlit
+streamlit-option-menu
 numpy
 pandas
 plotly
-streamlit_option_menu
 StandardScaler
