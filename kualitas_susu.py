@@ -10,7 +10,7 @@ from sklearn.metrics import classification_report
 from datetime import datetime
 import os
 
-@st.cache_data
+# @st.cache_data # fungsi 'load_data' akan dipanggil sekali saja saat pertama kali aplikasi dijalankan
 def load_data():
     data = pd.read_csv('data/milkdata.csv')
     return data
@@ -54,16 +54,17 @@ data = load_data()
 x, y, le, scaler = prepare_data(data)
 
 # Membagi Dataset menjadi Data Training dan Data Testing
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+# x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
 
 # Melatih Model Naive Bayes
-nb = train_model(x_train, y_train)
+# nb = train_model(x_train, y_train) # Penggunaan apabila data training dan data testing di spit
+nb = train_model(x, y)
 
 # Prediksi
-y_pred = nb.predict(x_test)
+# y_pred = nb.predict(x_test)
 
 # Menghitung Akurasi
-accuracy = np.sum(y_test == y_pred) / len(y_test)
+# accuracy = np.sum(y_test == y_pred) / len(y_test)
 
 # Menu
 with st.sidebar:
@@ -119,10 +120,15 @@ if selected == 'Pengecekan Grade Susu':
         today = datetime.today().strftime('%Y-%m-%d')
         file_name = f'data/data_susu_{today}.csv'
 
+        # Update Data Latih
+        update_data = f'data/milkdata.csv'
+
         if os.path.exists(file_name):
             result_df.to_csv(file_name, mode='a', header=False, index=False)
+            result_df.to_csv(update_data, mode='a', header=False, index=False)
         else:
             result_df.to_csv(file_name, mode='a', header=True, index=False)
+            result_df.to_csv(update_data, mode='a', header=False, index=False)
 
         st.write('## Data Telah Disimpan')
         st.write(result_df)
@@ -204,8 +210,9 @@ elif selected == 'Informasi Program':
     st.write('\u25CF Dataset yang digunakan :')
     st.dataframe(data)
     st.text(f'\u25CF Jumlah Data          : {len(data)}')
-    st.text(f'\u25CF Pembagian Dataset    :')
-    st.text(f'- Data Training : {len(x_train)} (80%)')
-    st.text(f'- Data Testing  : {len(x_test)} (20%)')
-    st.text(f'\u25CF Akurasi Program      : {accuracy * 100:.2f}%')
-    st.text(f'\u25CF Laporan Klasifikasi  :\n{classification_report(y_test, y_pred, target_names=le.classes_)}')
+    # st.text(f'\u25CF Pembagian Dataset    :')
+    # st.text(f'- Data Training : {len(x_train)} (80%)')
+    # st.text(f'- Data Testing  : {len(x_test)} (20%)')
+    # st.text(f'\u25CF Akurasi Program      : {accuracy * 100:.2f}%')
+    # st.text(f'\u25CF Laporan Klasifikasi  :\n{classification_report(y_test, y_pred, target_names=le.classes_)}')
+    st.text(f'\u25CF Laporan Klasifikasi  :\n{classification_report(y, y, target_names=le.classes_)}')
