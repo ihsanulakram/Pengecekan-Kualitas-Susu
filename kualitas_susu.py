@@ -79,13 +79,13 @@ if selected == 'Pengecekan Grade Susu':
     st.markdown('Silakan masukkan nilai-nilai berikut untuk mengecek grade susu:')
     # Form Input
     with st.form(key='input_form'):
-        nilai_pH = st.number_input('**pH**', format='%.1f', min_value=0.0, max_value=14.0, step=0.1)
+        nilai_pH = st.number_input('**pH** (0-14)', format='%.1f', min_value=0.0, max_value=14.0, step=0.1)
         nilai_Temprature = st.number_input('**Temprature (\u00B0C)**', min_value=0, max_value=99, step=1)
         nilai_Taste = st.number_input('**Taste (0 = Bad, 1 = Good)**', min_value=0, max_value=1)
         nilai_Odor = st.number_input('**Odor (0 = Bad, 1 = Good)**', min_value=0, max_value=1)
         nilai_Fat = st.number_input('**Fat (0 = Bad, 1 = Good)**', min_value=0, max_value=1)
         nilai_Turbidity = st.number_input('**Turbidity (0 = Bad, 1 = Good)**', min_value=0, max_value=1)
-        nilai_Colour = st.number_input('**Colour (240-255)**', min_value=240, max_value=255, key='nilai_Colour')
+        nilai_Colour = st.slider('**Colour**', 240, 255, key='nilai_Colour')
         submit_button = st.form_submit_button(label='CEK')
 
     if submit_button:
