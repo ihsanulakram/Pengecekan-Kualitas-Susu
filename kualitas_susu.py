@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import streamlit as st
 from streamlit_option_menu import option_menu
-from sklearn.model_selection import train_test_split
+# from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import classification_report
@@ -79,7 +79,7 @@ if selected == 'Pengecekan Grade Susu':
     st.markdown('Silakan masukkan nilai-nilai berikut untuk mengecek grade susu:')
     # Form Input
     with st.form(key='input_form'):
-        nilai_pH = st.number_input('**pH** (0-14)', format='%.1f', min_value=0.0, max_value=14.0, step=0.1)
+        nilai_pH = st.number_input('**pH (0-14)**', format='%.1f', min_value=0.0, max_value=14.0, step=0.1)
         nilai_Temprature = st.number_input('**Temprature (\u00B0C)**', min_value=0, max_value=99, step=1)
         nilai_Taste = st.number_input('**Taste (0 = Bad, 1 = Good)**', min_value=0, max_value=1)
         nilai_Odor = st.number_input('**Odor (0 = Bad, 1 = Good)**', min_value=0, max_value=1)
