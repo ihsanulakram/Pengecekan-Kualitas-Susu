@@ -1,0 +1,107 @@
+{
+  "trained_at": "2026-06-13T10:57:44",
+  "features": [
+    "pH",
+    "Temperature",
+    "Taste",
+    "Odor",
+    "Fat",
+    "Turbidity",
+    "Colour"
+  ],
+  "target": "Grade",
+  "classes": [
+    "high",
+    "low",
+    "medium"
+  ],
+  "training_rows_after_dedup": 83,
+  "selected_model": "Gaussian Naive Bayes",
+  "model": "Gaussian Naive Bayes + StandardScaler",
+  "selection_method": "Highest mean accuracy from stratified cross-validation after duplicate removal",
+  "best_cv_mean": 0.8558823529411764,
+  "best_cv_std": 0.11472473449907107,
+  "model_comparison": [
+    {
+      "Rank": 1,
+      "Model": "Gaussian Naive Bayes",
+      "CV Mean": 0.8558823529411764,
+      "CV Std": 0.11472473449907107,
+      "CV Mean (%)": 85.58823529411764,
+      "CV Std (%)": 11.472473449907108,
+      "Fold Scores": [
+        1.0,
+        0.6470588235294118,
+        0.8823529411764706,
+        0.875,
+        0.875
+      ]
+    },
+    {
+      "Rank": 2,
+      "Model": "Random Forest",
+      "CV Mean": 0.8433823529411765,
+      "CV Std": 0.07992751906883053,
+      "CV Mean (%)": 84.33823529411765,
+      "CV Std (%)": 7.992751906883052,
+      "Fold Scores": [
+        0.8823529411764706,
+        0.7058823529411765,
+        0.9411764705882353,
+        0.875,
+        0.8125
+      ]
+    },
+    {
+      "Rank": 3,
+      "Model": "Decision Tree",
+      "CV Mean": 0.8073529411764706,
+      "CV Std": 0.08203061923056221,
+      "CV Mean (%)": 80.73529411764706,
+      "CV Std (%)": 8.203061923056222,
+      "Fold Scores": [
+        0.7647058823529411,
+        0.8235294117647058,
+        0.8235294117647058,
+        0.9375,
+        0.6875
+      ]
+    },
+    {
+      "Rank": 4,
+      "Model": "Logistic Regression",
+      "CV Mean": 0.7448529411764706,
+      "CV Std": 0.07801051299926377,
+      "CV Mean (%)": 74.48529411764706,
+      "CV Std (%)": 7.801051299926377,
+      "Fold Scores": [
+        0.8235294117647058,
+        0.7647058823529411,
+        0.8235294117647058,
+        0.6875,
+        0.625
+      ]
+    },
+    {
+      "Rank": 5,
+      "Model": "K-Nearest Neighbors",
+      "CV Mean": 0.6860294117647059,
+      "CV Std": 0.11592489514715505,
+      "CV Mean (%)": 68.6029411764706,
+      "CV Std (%)": 11.592489514715504,
+      "Fold Scores": [
+        0.8823529411764706,
+        0.5294117647058824,
+        0.7058823529411765,
+        0.6875,
+        0.625
+      ]
+    }
+  ],
+  "dependency_versions": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scikit-learn": "1.7.2",
+    "joblib": "1.5.2"
+  }
+}
