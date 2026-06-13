@@ -380,11 +380,6 @@ def render_evaluation_page(data: pd.DataFrame, clean_data: pd.DataFrame) -> None
         fig.update_traces(texttemplate="%{text:.2f}%", textposition="outside")
         render_plotly_chart(fig)
 
-        st.info(
-            f"Model yang dipakai untuk prediksi saat ini: **{metrics['best_model_name']}**. "
-            "Jika dataset diperbarui, jalankan `python scripts/train_model.py` untuk memilih dan menyimpan model terbaik kembali."
-        )
-
     with tab_report:
         st.dataframe(metrics["classification_report"], width="stretch")
 
